@@ -7,7 +7,13 @@
 
     <hr>
 				<!-- Table to show member detalis -->
-    <p>Please <a ng-click="showMemberLoginModal()" id="loginButton" href="">LOGIN</a> to manage contact details</p>
+    <p ng-show="isButtonDisabled">Please <a ng-click="showMemberLoginModal()" id="loginButton" href="">LOGIN</a> to manage contact details</p>
+    <div class="actionContainer" >
+        <input class="btn btn-info" value="Insert" ng-click="insertButtonClicked()" ng-disabled="isButtonDisabled">
+        <input class="btn btn-info" value="Edit" ng-click="editButtonClicked()" ng-disabled="isButtonDisabled">
+        <input class="btn btn-danger" value="Delete" ng-click="deleteButtonClicked()" ng-disabled="isButtonDisabled">
+        <input class="btn btn-primary" value="Login" ng-click="showMemberLoginModal()" ng-show="isButtonDisabled">
+    </div>
     <div class="tableContainer">
             <table class="table table-hover">
             <tr>
@@ -22,7 +28,7 @@
             selected-member="" directive-function="directiveCallBack(member, $index)"  
             ng-click="memberSingleClick(member, $index)"
         -->
-            <tr ng-repeat="member in members| filter:search_query" ng-disabled="isButtonDisabled" ng-dblclick="isButtonDisabled || showMemberViewModal(member)"  ng-class="{selectedRowColor: $index == selectedRowIndex}" >
+            <tr ng-repeat="member in members| filter:search_query" ng-disabled="isButtonDisabled" ng-click="memberSingleClick(member, $index)"  ng-dblclick="isButtonDisabled || showMemberViewModal(member)"  ng-class="{selectedRowColor: $index == selectedRowIndex}" >
                 <td><span>{{$index + 1}}</span></td>
                 <td>{{member.firstName}}</td>
                 <td>{{member.lastName}}</td>
@@ -39,6 +45,7 @@
             <input class="btn btn-info" value="Insert" ng-click="insertButtonClicked()" ng-disabled="isButtonDisabled">
             <input class="btn btn-info" value="Edit" ng-click="editButtonClicked()" ng-disabled="isButtonDisabled">
             <input class="btn btn-danger" value="Delete" ng-click="deleteButtonClicked()" ng-disabled="isButtonDisabled">
+            <input class="btn btn-primary" value="Login" ng-click="showMemberLoginModal()" ng-show="isButtonDisabled">
         </div>
 
 
