@@ -21,4 +21,3 @@ evoApp.config(function($stateProvider, $urlRouterProvider) {
 
 
 
-

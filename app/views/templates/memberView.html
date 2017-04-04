@@ -5,19 +5,29 @@
   <span>Evo-Member view</span>
 </div>
 <div class="modalBody">
-  <form>
+  <form name="myForm" novalidate>
     <div class="formRow">
     	<label class="formLabel" for="fname">First Name</label>
-    	<input class="formField" type="text" id="fname" ng-model="selectedMember.firstName">
+    	<input class="formField" name="firstname" type="text" id="fname" ng-model="selectedMember.firstName"  required>
+      <span style="color:red" ng-show="myForm.firstname.$dirty && myForm.firstname.$invalid">
+      <span ng-show="myForm.firstname.$error.required">Firstname is required.</span>
+      </span>
     </div>
     <div class="formRow">
     	<label class="formLabel" for="lname">Last Name</label>
-    	<input class="formField" type="text" id="lname"  ng-model="selectedMember.lastName">
+    	<input class="formField" name="lastname" type="text" id="lname"  ng-model="selectedMember.lastName"  required>
+      <span style="color:red" ng-show="myForm.lastname.$dirty && myForm.lastname.$invalid">
+      <span ng-show="myForm.lastname.$error.required">Lastname is required.</span>
+      </span>
     </div>
 
     <div class="formRow">
     	<label class="formLabel" for="email">Email</label>
-    	<input class="formField" type="text" id="email" ng-model="selectedMember.email">
+    	<input class="formField" name="email" type="email" id="email" ng-model="selectedMember.email" required>
+      <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+      <span ng-show="myForm.email.$error.required">Email is required.</span>
+      <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+      </span>
     </div>
     <div class="formRow">
     	<label class="formLabel" for="phone">Phone</label>
