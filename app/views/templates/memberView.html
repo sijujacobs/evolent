@@ -1,0 +1,38 @@
+<div id="memberViewModal" class="modalWindow" ng-show="isMemberViewVisible">
+<div class="modalContent">
+<div class="modalHeader">
+  <span class="closeButton" ng-click="closeModal()">&times;</span>
+  <span>Evo-Member view</span>
+</div>
+<div class="modalBody">
+  <form>
+    <div class="formRow">
+    	<label class="formLabel" for="fname">First Name</label>
+    	<input class="formField" type="text" id="fname" ng-model="selectedMember.firstName">
+    </div>
+    <div class="formRow">
+    	<label class="formLabel" for="lname">Last Name</label>
+    	<input class="formField" type="text" id="lname"  ng-model="selectedMember.lastName">
+    </div>
+
+    <div class="formRow">
+    	<label class="formLabel" for="email">Email</label>
+    	<input class="formField" type="text" id="email" ng-model="selectedMember.email">
+    </div>
+    <div class="formRow">
+    	<label class="formLabel" for="phone">Phone</label>
+    	<input class="formField" type="text" id="phone"  ng-model="selectedMember.phone">
+    </div>
+    <div class="formRow">
+    	<label class="formLabel" for="status">Status</label>
+    	<select ng-model="selectedMember.status" style="margin-top:3px; height:35px; width:230px">
+        <option  value="Active">Active</option>
+        <option  value="Inactive">Inactive</option>
+      </select>
+    </div>
+    <button class="formButton" ng-click="saveMember(selectedMember)">Save</button>
+    <button class="formButton" ng-click="closeModal()">Cancel</button>
+  </form>
+</div>
+</div>
+</div><!-- END modal -->
